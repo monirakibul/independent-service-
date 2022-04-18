@@ -7,7 +7,7 @@ const Services = () => {
 
 
     useEffect(() => {
-        fetch('services.json')
+        fetch('https://raw.githubusercontent.com/monirakibul/ema-jhon-auth-simple/main/services.json')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
