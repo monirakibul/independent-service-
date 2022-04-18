@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Blog from '../Blog/Blog';
 
 const Blogs = () => {
+
+    const [blogs, setBlogs] = useState([]);
+
+
+    useEffect(() => {
+        fetch('blogs.json')
+            .then(res => res.json())
+            .then(data => setBlogs(data))
+    }, []);
+
     return (
-        <div>
-            blogs
+        <div className='my-3' id='services'>
+            <h2 className='text-center mb-4'>Blogs</h2>
+            <div className="container mb-5 mx-auto row gy-5">
+                {
+                    blogs.map(blog => <Blog service={blog}></Blog>)
+                }
+            </div>
         </div>
     );
 };

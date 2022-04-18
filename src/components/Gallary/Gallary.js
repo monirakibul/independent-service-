@@ -10,7 +10,7 @@ const Gallary = () => {
     return (
         <div className='my-4'>
             <h2 className='text-center m-3'>Recently Clicked</h2>
-            <div class="container mb-5 mx-auto row g-5">
+            <div class="container mb-5 mx-auto row gy-4">
                 <div class="col-lg-4 col-sm-12 col-md-6">
                     <img className='img-fluid' src={pic1} alt="" />
                 </div>

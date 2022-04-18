@@ -1,8 +1,8 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,13 +23,16 @@ const LogIn = () => {
         signInWithGoogle()
     }
 
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
-    if (emailError || error) {
-        toast(emailError.message ? emailError.message : error.message);
-    }
+    useEffect(() => {
+        toast(emailError?.message ? emailError?.message : error?.message);
+    }, [emailError, error])
+
 
     if (user || emailUser) {
-        navigate('/');
+        navigate(from, { replace: true });
     }
 
     const handleLogin = async (event) => {

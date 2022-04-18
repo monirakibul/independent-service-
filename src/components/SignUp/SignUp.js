@@ -1,9 +1,8 @@
-import { updateProfile } from 'firebase/auth';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,7 +16,9 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
 
     const [
         signInWithGoogle,
@@ -26,13 +27,12 @@ const SignUp = () => {
         emailError,
     ] = useSignInWithGoogle(auth);
 
-
-    if (emailError || error) {
-        toast(emailError.message ? emailError.message : error.message);
-    }
+    useEffect(() => {
+        toast(emailError?.message ? emailError?.message : error?.message);
+    }, [emailError, error])
 
     if (user || emailUser) {
-        navigate('/');
+        console.log(user)
     }
 
     const handleRegister = async (event) => {
@@ -44,20 +44,22 @@ const SignUp = () => {
 
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
+        console.log(UpdateError)
+        navigate('/');
     }
     return (
         <div className='container body-container col-lg-6 text-start'>
             <h2 className='text-center m-3'>SignUp</h2>
             <Form onSubmit={handleRegister}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
                     <Form.Label>Full Name</Form.Label>
                     <Form.Control name="name" type="text" placeholder="Enter email" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control name="email" type="email" placeholder="Enter email" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3">
                     <Form.Label>Password</Form.Label>
                     <Form.Control name="password" type="password" placeholder="Password" />
                 </Form.Group>
@@ -75,6 +77,7 @@ const SignUp = () => {
             <div className="text-center">
                 <button onClick={() => signInWithGoogle()} className="btn btn-md btn-primary btn-outline" href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png" /> SignUp Using Google</button>
             </div>
+            <ToastContainer />
         </div>
     );
 };

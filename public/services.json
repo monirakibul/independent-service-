@@ -1,6 +1,7 @@
 [
     {
-        "name": "Wedding",
+        "id": 1,
+        "name": "Wedding Pro",
         "price": 500,
         "hour": 3,
         "quantity": 500,
@@ -8,7 +9,8 @@
         "description": "gggg"
     },
     {
-        "name": "Fashion",
+        "id": 2,
+        "name": "Fashion Max",
         "price": 350,
         "hour": 2,
         "quantity": 300,
@@ -16,7 +18,8 @@
         "description": "gggg"
     },
     {
-        "name": "Family",
+        "id": 3,
+        "name": "Family Ulta",
         "price": 100,
         "hour": 1,
         "quantity": 150,
