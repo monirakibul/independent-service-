@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className='mb-5'>
-            <Navbar collapseOnSelect sticky='top' expand="lg" bg="dark" variant="dark">
-                <Container>
+        <div>
+            <Navbar collapseOnSelect sticky='top' expand="lg" bg="primary" variant="dark">
+                <Container className='d-flex justify-content-between'>
                     <Navbar.Brand as={Link} to="/">MK Photography</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
+                        <Nav className="ms-auto">
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
                             <Nav.Link as={Link} to="/home#services">Services</Nav.Link>
                             <Nav.Link as={Link} to="/about">About</Nav.Link>

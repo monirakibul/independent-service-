@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Wedding",
+        "price": 500,
+        "hour": 3,
+        "quantity": 500,
+        "img": "https://i.ibb.co/k6gvhQc/wedding.jpg",
+        "description": "gggg"
+    },
+    {
+        "name": "Fashion",
+        "price": 350,
+        "hour": 2,
+        "quantity": 300,
+        "img": "https://i.ibb.co/RQbBDzn/fasion.jpg",
+        "description": "gggg"
+    },
+    {
+        "name": "Family",
+        "price": 100,
+        "hour": 1,
+        "quantity": 150,
+        "img": "https://i.ibb.co/bbQG9YH/family.jpg",
+        "description": "gggg"
+    }
+]

@@ -46,7 +46,7 @@ const SignUp = () => {
         await updateProfile({ displayName: name });
     }
     return (
-        <div className='container col-lg-6 text-start'>
+        <div className='container body-container col-lg-6 text-start'>
             <h2 className='text-center m-3'>SignUp</h2>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

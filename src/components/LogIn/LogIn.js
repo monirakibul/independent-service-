@@ -43,7 +43,7 @@ const LogIn = () => {
     }
 
     return (
-        <div className='container col-lg-6 text-start'>
+        <div className='container body-container col-lg-6 text-start'>
             <h2 className='text-center m-3'>LogIn</h2>
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" >

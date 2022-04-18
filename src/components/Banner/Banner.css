@@ -1,0 +1,23 @@
+.banner {
+    background-image: url('./../../Images/banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.banner-info {
+    background-color: rgba(0, 0, 0, 0.27);
+    z-index: 1;
+}
+
+@media (min-width: 992px) {
+    .banner {
+        background-position: center top !important;
+    }
+}
+
+.header-paragraph {
+    max-width: 500px;
+    color: rgba(255, 255, 255, 0.775);
+    font-size: 18px;
+}
