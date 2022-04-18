@@ -85,7 +85,7 @@ const LogIn = () => {
             </Form>
 
             <p className='my-3'>Don't have account? <Link className='text-decoration-none' to='/signup'>SignUp</Link></p>
-            <p className='pointer' onClick={resendEmail}>Forgot Password?</p>
+            <p role="button" onClick={resendEmail}>Forgot Password?</p>
             <div className="d-flex justify-content-between w-100">
                 <hr style={{ height: '1px', width: '45%' }} />
                 <p>OR</p>
