@@ -14,7 +14,7 @@ const About = () => {
                 <img className="card-img-top" src="https://i.ibb.co/D9BTGyD/my.jpg" alt="Card image cap" />
                 <div className="card-body">
                     <h3 className="card-title">Rakibul Hasan Moni</h3>
-                    <p className="card-text"></p>
+                    <p className="card-text">I want to be a web developer. After finishing the daily modules, I am preparing very well so that I can become a good developer. I am doing everything by routine every day. Inshallah I will stick like this before reaching the final destination.</p>
                 </div>
             </div>
         </div>
