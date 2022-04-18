@@ -13,11 +13,11 @@ const Blogs = () => {
     }, []);
 
     return (
-        <div className='my-3' id='services'>
+        <div className='my-3' id='blogs'>
             <h2 className='text-center mb-4'>Blogs</h2>
             <div className="container mb-5 mx-auto row gy-5">
                 {
-                    blogs.map(blog => <Blog service={blog}></Blog>)
+                    blogs.map(blog => <Blog key={blog.id} blog={blog}></Blog>)
                 }
             </div>
         </div>
