@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
 
     const navigate = useNavigate();
+
+    // firebase hooks 
     const [
         createUserWithEmailAndPassword,
         user,
@@ -27,6 +29,7 @@ const SignUp = () => {
         emailError,
     ] = useSignInWithGoogle(auth);
 
+    // error toast 
     useEffect(() => {
         toast(emailError?.message ? emailError?.message : error?.message);
     }, [emailError, error])
@@ -35,6 +38,7 @@ const SignUp = () => {
         console.log(user)
     }
 
+    // create user with email and password 
     const handleRegister = async (event) => {
         event.preventDefault();
 

@@ -8,12 +8,14 @@ const CheckOut = () => {
     const [serviceDetails, setServiceDetails] = useState([]);
 
 
+    // fetching data 
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/monirakibul/ema-jhon-auth-simple/main/services.json')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
 
+    // checking with serviceId 
     useEffect(() => {
         for (const service of services) {
             if (service.id == serviceId) {

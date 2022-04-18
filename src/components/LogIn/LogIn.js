@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const LogIn = () => {
 
+    // firebase hooks
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
     const [userEmail, setuserEmail] = useState('');
@@ -29,6 +30,7 @@ const LogIn = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+    // error toast 
     useEffect(() => {
         toast(emailError?.message ? emailError?.message : error?.message);
     }, [emailError, error])
@@ -43,6 +45,7 @@ const LogIn = () => {
         navigate(from, { replace: true });
     }
 
+    // login with email and password 
     const handleLogin = async (event) => {
         event.preventDefault();
 
@@ -53,6 +56,7 @@ const LogIn = () => {
 
     }
 
+    // reset password 
     const resendEmail = async () => {
 
         if (!userEmail) {
